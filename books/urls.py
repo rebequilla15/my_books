@@ -1,14 +1,7 @@
-
 from django.contrib import admin
-from django.urls import path
-from .views import home, detail
+from django.urls import path, include
 
-urlapatterns = [
-    path ('',home,name='home'), 
-    path('books/<int:id>/', detail,name='post_detail'),
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('books.urls')),  # Incluye las URLs de la aplicación books
 ]
-
-
-
-
-

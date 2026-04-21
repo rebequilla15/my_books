@@ -1,11 +1,17 @@
 from django.db import models
 
-# Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
 
-title = models.CharField(max_length=250)
+class Book(models.Model):
+    title = models.CharField(max_length=250)
+    author = models.CharField(max_length=250)
+    image = models.CharField(max_length=2000)
+    created_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)  # Se actualiza automáticamente en cada modificación
 
-title = models.CharField(max_length=250)
-author = models.CharField(max_length=250)
-image = models.CharField(max_length=2000)
-created_at =models.CharField(auto_now_add=True)
-update_at = models.CharField(auto_now=True)
+    def __str__(self):
+        return self.title
